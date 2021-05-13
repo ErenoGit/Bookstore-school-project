@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { StoreModule } from '@ngrx/store';
 import { store } from './src/app/store/store';
+import { HttpClientModule } from '@angular/common/http';
 
 const materialModules = [
   MatToolbarModule,
@@ -51,6 +52,7 @@ const materialModules = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     StoreModule.forRoot({...store})
   ],
   providers: [],
