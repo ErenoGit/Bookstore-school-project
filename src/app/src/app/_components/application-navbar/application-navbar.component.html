@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="navbar-title"> Księgarnia </span>
+        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.borrowedBooks}" (click)="navigateToPage(appPages.borrowedBooks)">
+            <mat-icon aria-hidden="false">share</mat-icon>
+            <span>Lista wypożyczeń</span>
+        </div>
+        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.booksList}" (click)="navigateToPage(appPages.booksList)">
+            <mat-icon aria-hidden="false">book</mat-icon>
+            <span>Lista książek</span>
+        </div>
+        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.usersList}" (click)="navigateToPage(appPages.usersList)">
+            <mat-icon aria-hidden="false">assignment_ind</mat-icon>
+            <span>Lista czytelników</span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,22 @@
+.navbar-title {
+  margin-right: 30px;
+}
+.navbar-nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  margin: 0 15px;
+  a {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    color: #bbb;
+    cursor: pointer;
+  }
+}
+
+.actived {
+  color: #bbb;
+}
