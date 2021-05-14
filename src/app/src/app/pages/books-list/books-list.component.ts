@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { AppState } from '../../store/reducer';
 import { BooksList } from './_models/books-list.models';
+import { BooksListRequestService } from './_services/books-list-request.service';
 
 @Component({
   selector: 'app-books-list',
@@ -7,28 +10,21 @@ import { BooksList } from './_models/books-list.models';
   styleUrls: ['./books-list.component.scss']
 })
 export class BooksListComponent implements OnInit {
-  booksListMock: BooksList = [
-    {
-      id: 1,
-      title: "Testowa ksiazka",
-      author: "Nieznany",
-      isbn: 997420912331,
-      year: 1999,
-      category: "Comedy",
-    },
-    {
-      id: 1,
-      title: "Testowa ksiazka 2",
-      author: "Nieznany",
-      isbn: 997420912331,
-      year: 1994,
-      category: "Comedy",
-    }
-  ];
+  booksList: BooksList = [];
 
-  constructor() { }
+  constructor(
+    private booksListRequestService: BooksListRequestService,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+    this.booksListRequestService.getBooksList();
+
+    this.store
+      .pipe(select('booksListReducer'))
+      .subscribe(state => {
+        this.booksList = state.booksList;
+      });
   }
 
 }

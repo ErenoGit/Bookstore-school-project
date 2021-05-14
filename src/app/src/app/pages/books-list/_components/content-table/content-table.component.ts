@@ -10,7 +10,7 @@ import { BooksList } from '../../_models/books-list.models';
 })
 export class ContentTableComponent implements OnInit {
   @Input() books: BooksList = [];
-  displayedColumns: string[] = ['title', 'author', 'isbn', 'year'];
+  displayedColumns: string[] = ['title', 'author', 'category', 'isbn', 'publishYear'];
   dataSource: any = null;
 
   @ViewChild(MatSort) sort: MatSort;
@@ -18,7 +18,16 @@ export class ContentTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.books);
+    this.updateDataSource();
   }
 
+  ngOnChanges(): void {
+    this.updateDataSource();
+  }
+
+  updateDataSource() {
+    if (this.books.length > 0) {
+      this.dataSource = new MatTableDataSource(this.books);
+    }
+  }
 }

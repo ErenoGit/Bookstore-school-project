@@ -27,6 +27,9 @@ import { appReducers } from './src/app/store/reducer';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { AddBookModalComponent } from './src/app/pages/books-list/_components/add-book-modal/add-book-modal.component';
+import { RemoveBookModalComponent } from './src/app/pages/books-list/_components/remove-book-modal/remove-book-modal.component';
+import { BooksListMenuComponent } from './src/app/pages/books-list/_components/books-list-menu/books-list-menu.component';
 
 const materialModules = [
   MatToolbarModule,
@@ -50,7 +53,10 @@ const materialModules = [
     UsersListContentTableComponent,
     UsersListMenuComponent,
     AddUserModalComponent,
-    RemoveUserModalComponent
+    RemoveUserModalComponent,
+    AddBookModalComponent,
+    RemoveBookModalComponent,
+    BooksListMenuComponent
   ],
   imports: [
     ...materialModules,

@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Usuń książke</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="remove-book-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Książki</mat-label>
+      <mat-select [formControl]="bookToDelete">
+        <mat-option *ngFor="let book of booksList" [value]="book.title">{{book.title}} ({{book.publishYear}})</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="onSubmitClick()">Usuń</button>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="warn">Zamknij</button>
+</mat-dialog-actions>
