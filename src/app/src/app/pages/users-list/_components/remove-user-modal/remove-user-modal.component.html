@@ -1,8 +1,15 @@
 <h2 mat-dialog-title>Usuń czytelnika</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Develop across all platforms</h3>
+  <div class="remove-user-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Czytelnicy</mat-label>
+      <mat-select [formControl]="userToDelete">
+        <mat-option *ngFor="let user of usersList" [value]="user.memberId">{{user.firstName}} {{user.lastName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button mat-dialog-close (click)="onSubmitClick()">Usuń</button>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button mat-dialog-close>Install</button>
+  <button mat-button mat-dialog-close color="warn">Zamknij</button>
 </mat-dialog-actions>

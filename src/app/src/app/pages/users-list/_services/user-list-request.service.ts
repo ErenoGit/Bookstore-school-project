@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { UserListRequestMapperService } from 'src/src/app/pages/users-list/_services/user-list-request-mapper.service';
 import { setUsersListData } from '../../../store/actions/usersList.actions';
+import { AppState } from '../../../store/reducer';
 import { UserListRequestProviderService } from './user-list-request-provider.service';
 
 @Injectable({
@@ -10,14 +12,25 @@ export class UserListRequestService {
 
   constructor(
     private userListRequestProviderService: UserListRequestProviderService,
-    private readonly store: Store
+    private readonly store: Store<AppState>,
   ) { }
 
   getUserList(): void {
     this.userListRequestProviderService.getUsersList()
-      .subscribe(userList => {
-        console.log(userList);
-        this.store.dispatch(setUsersListData(userList));
+      .subscribe(usersList => {
+        this.store.dispatch(setUsersListData({ usersList }));
+      });
+  }
+
+  removeUser(id: string) {
+    this.userListRequestProviderService.removeUser(id)
+      .subscribe({
+        next: (res) => {
+
+        },
+        error: () => {
+
+        }
       });
   }
 }

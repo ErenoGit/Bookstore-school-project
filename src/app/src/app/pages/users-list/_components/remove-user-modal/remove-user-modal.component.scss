@@ -1,0 +1,10 @@
+.remove-user-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+mat-dialog-content {
+  min-width: 400px;
+}

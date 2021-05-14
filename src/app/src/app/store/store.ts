@@ -1,5 +1,5 @@
-import { usersListReducer } from "./reducer/usersList.reducer";
+import { appReducers } from "./reducer";
 
 export const store = {
-    usersListReducer
+    appReducers
 }

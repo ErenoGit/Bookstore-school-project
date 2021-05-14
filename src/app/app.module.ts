@@ -22,8 +22,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { StoreModule } from '@ngrx/store';
-import { store } from './src/app/store/store';
 import { HttpClientModule } from '@angular/common/http';
+import { appReducers } from './src/app/store/reducer';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const materialModules = [
   MatToolbarModule,
@@ -32,7 +34,8 @@ const materialModules = [
   MatSortModule,
   MatProgressSpinnerModule,
   MatButtonModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 ];
 
 @NgModule({
@@ -49,11 +52,12 @@ const materialModules = [
   ],
   imports: [
     ...materialModules,
+    StoreModule.forRoot(appReducers, {}),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    StoreModule.forRoot({...store})
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

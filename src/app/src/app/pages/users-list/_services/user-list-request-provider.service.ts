@@ -12,6 +12,10 @@ export class UserListRequestProviderService {
   }
 
   getUsersList(): Observable<any> {
-    return this.http.get('http://127.0.0.1:4000/getMembers');
+    return this.http.get('http://127.0.0.1:5000/getMembers');
+  }
+
+  removeUser(id: string): Observable<any> {
+    return this.http.get('http://127.0.0.1:5000/deleteMembers', { params: { memberId: id }})
   }
 }
