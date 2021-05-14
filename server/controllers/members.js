@@ -9,10 +9,10 @@ module.exports = {
   },
 
   addMember: (req, res) => {
-    const lastname = req.params.lastname;
-    const firstname = req.params.firstname;
-    const address = req.params.address;
-    const phoneNumber = req.params.phoneNumber;
+    const lastname = req.body.lastname;
+    const firstname = req.body.firstname;
+    const address = req.body.address;
+    const phoneNumber = req.body.phoneNumber;
     members.addMember(lastname,firstname,address,phoneNumber,(error, data) => {
       if (error) res.status(500).send(error);
       else res.send(data);
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   deleteMember: (req, res) => {
-    const id = req.params.id;
+    const id = req.body.memberId;
     members.deleteMember(id, (error, data) => {
       if (error) res.status(500).send(error);
       else res.send(data);
