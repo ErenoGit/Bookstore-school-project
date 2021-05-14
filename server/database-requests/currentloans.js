@@ -3,7 +3,7 @@ const db = require('../database.js');
 module.exports = {
   getLoans: async (result) => {
    db.query(
-        "SELECT * FROM currentloan",
+        "SELECT loanId, (SELECT firstName FROM member WHERE memberId = c.memberId) AS firstName, (SELECT lastName FROM member WHERE memberId = c.memberId) AS lastName, (SELECT title FROM book WHERE bookId = c.bookId) AS title, loanDate, dueDate FROM currentloan c",
         (err, res) => {
           if (err) {
             console.log("error: ", err);
