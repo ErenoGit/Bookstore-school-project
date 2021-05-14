@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,NavigationEnd  } from '@angular/router';
 import { appPages } from '../../models/app-models';
+import { InitialDataService } from '../../_services/initial-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,10 @@ export class ApplicationNavbarComponent implements OnInit {
   currentRoute: string;
   appPages = appPages;
 
-  constructor(private router: Router){
+  constructor(
+    private router: Router,
+    private initialDataService: InitialDataService
+    ){
   }
 
   ngOnInit(): void {
@@ -22,5 +26,9 @@ export class ApplicationNavbarComponent implements OnInit {
 
   navigateToPage(page: string) {
     this.router.navigate([page]);
+  }
+
+  refreshPage() {
+    this.initialDataService.loadAppData();
   }
 }

@@ -13,13 +13,10 @@ export class BooksListComponent implements OnInit {
   booksList: BooksList = [];
 
   constructor(
-    private booksListRequestService: BooksListRequestService,
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
-    this.booksListRequestService.getBooksList();
-
     this.store
       .pipe(select('booksListReducer'))
       .subscribe(state => {

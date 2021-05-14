@@ -36,6 +36,7 @@ import { RemoveLoanMenuComponent } from './src/app/pages/loans-list/_components/
 import { RemoveLoanTableComponent } from './src/app/pages/loans-list/_components/remove-loan-table/remove-loan-table.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AppLoaderComponent } from './src/app/_components/app-loader/app-loader.component';
 
 const materialModules = [
   MatToolbarModule,
@@ -48,7 +49,7 @@ const materialModules = [
   MatSelectModule,
   MatInputModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
 ];
 
 @NgModule({
@@ -68,7 +69,8 @@ const materialModules = [
     LoansListComponent,
     AddLoanModalComponent,
     RemoveLoanMenuComponent,
-    RemoveLoanTableComponent
+    RemoveLoanTableComponent,
+    AppLoaderComponent
   ],
   imports: [
     ...materialModules,

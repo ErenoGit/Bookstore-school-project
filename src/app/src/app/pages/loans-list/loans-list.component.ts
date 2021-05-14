@@ -18,8 +18,6 @@ export class LoansListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userListRequestService.getLoansList();
-
     this.store
       .pipe(select('loansListReducer'))
       .subscribe(state => {

@@ -13,3 +13,13 @@ export interface BooksListStore {
 export interface LoansListStore {
     loansList: LoansList
 }
+
+export interface LoaderAction {
+    state: boolean,
+    action: string,
+}
+
+export interface GlobalStore {
+    loaderActions: string[],
+    isLoaderActive: boolean
+}

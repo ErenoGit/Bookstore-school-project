@@ -18,8 +18,6 @@ export class UsersListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userListRequestService.getUserList();
-
     this.store
       .pipe(select('usersListReducer'))
       .subscribe(state => {

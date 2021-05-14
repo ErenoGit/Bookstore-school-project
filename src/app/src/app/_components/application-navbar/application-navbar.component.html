@@ -1,17 +1,25 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span class="navbar-title"> Księgarnia </span>
-        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.loans}" (click)="navigateToPage(appPages.loans)">
-            <mat-icon aria-hidden="false">share</mat-icon>
-            <span>Lista wypożyczeń</span>
+    <mat-toolbar-row class="app-navbar">
+        <div class="left-side">
+            <span class="navbar-title"> Księgarnia </span>
+            <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.loans}" (click)="navigateToPage(appPages.loans)">
+                <mat-icon aria-hidden="false">share</mat-icon>
+                <span>Lista wypożyczeń</span>
+            </div>
+            <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.booksList}" (click)="navigateToPage(appPages.booksList)">
+                <mat-icon aria-hidden="false">book</mat-icon>
+                <span>Lista książek</span>
+            </div>
+            <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.usersList}" (click)="navigateToPage(appPages.usersList)">
+                <mat-icon aria-hidden="false">assignment_ind</mat-icon>
+                <span>Lista czytelników</span>
+            </div>
         </div>
-        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.booksList}" (click)="navigateToPage(appPages.booksList)">
-            <mat-icon aria-hidden="false">book</mat-icon>
-            <span>Lista książek</span>
-        </div>
-        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.usersList}" (click)="navigateToPage(appPages.usersList)">
-            <mat-icon aria-hidden="false">assignment_ind</mat-icon>
-            <span>Lista czytelników</span>
+        <div class="right-side">
+            <div class="navbar-nav-item"  (click)="refreshPage()">
+                <mat-icon aria-hidden="false">refresh</mat-icon>
+                <span>Odśwież</span>
+            </div>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
