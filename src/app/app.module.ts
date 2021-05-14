@@ -25,7 +25,8 @@ import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { appReducers } from './src/app/store/reducer';
 import {MatSelectModule} from '@angular/material/select';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 const materialModules = [
   MatToolbarModule,
@@ -35,7 +36,8 @@ const materialModules = [
   MatProgressSpinnerModule,
   MatButtonModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  MatInputModule
 ];
 
 @NgModule({
@@ -57,7 +59,8 @@ const materialModules = [
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

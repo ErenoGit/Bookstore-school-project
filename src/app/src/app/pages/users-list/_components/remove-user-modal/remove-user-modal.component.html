@@ -7,7 +7,7 @@
         <mat-option *ngFor="let user of usersList" [value]="user.memberId">{{user.firstName}} {{user.lastName}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button mat-dialog-close (click)="onSubmitClick()">Usuń</button>
+    <button mat-button (click)="onSubmitClick()">Usuń</button>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

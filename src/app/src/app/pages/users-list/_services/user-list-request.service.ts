@@ -33,4 +33,16 @@ export class UserListRequestService {
         }
       });
   }
+
+  addUser(lastName:string, firstName:string, address:string, phoneNumber:string) {
+    this.userListRequestProviderService.addUser(lastName, firstName, address, phoneNumber)
+      .subscribe({
+        next: (res) => {
+
+        },
+        error: () => {
+
+        }
+      });
+  }
 }

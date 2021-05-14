@@ -1,8 +1,31 @@
 <h2 mat-dialog-title>Dodaj czytelnika</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Develop across all platforms</h3>
+  <div class="add-user-form">
+
+    <mat-form-field class="example-form-field">
+      <mat-label>Imię</mat-label>
+      <input matInput type="text" [(ngModel)]="firstName">
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field">
+      <mat-label>Nazwisko</mat-label>
+      <input matInput type="text" [(ngModel)]="lastName">
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field">
+      <mat-label>Adres</mat-label>
+      <input matInput type="text" [(ngModel)]="address">
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field">
+      <mat-label>Number telefonu</mat-label>
+      <input matInput type="text" [(ngModel)]="phoneNumber">
+    </mat-form-field>
+
+    <button mat-button (click)="onSubmitClick()">Dodaj</button>
+    {{ errorMessage }}
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button mat-dialog-close>Install</button>
+  <button mat-button mat-dialog-close color="warn">Zamknij</button>
 </mat-dialog-actions>

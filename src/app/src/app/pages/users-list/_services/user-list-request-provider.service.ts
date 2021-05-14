@@ -18,4 +18,8 @@ export class UserListRequestProviderService {
   removeUser(id: string): Observable<any> {
     return this.http.post('http://127.0.0.1:5000/deleteMember', { memberId: id })
   }
+
+  addUser(lastName:string, firstName:string, address:string, phoneNumber:string): Observable<any> {
+    return this.http.post('http://127.0.0.1:5000/addMember', { lastName, firstName, address, phoneNumber });
+  }
 }

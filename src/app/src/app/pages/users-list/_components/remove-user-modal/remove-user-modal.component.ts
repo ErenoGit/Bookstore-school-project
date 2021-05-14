@@ -32,6 +32,7 @@ export class RemoveUserModalComponent implements OnInit {
       const result = this.usersList.find((user: User) => user.memberId === this.userToDelete.value);
       if(result) {
         this.userListRequestService.removeUser(this.userToDelete.value);
+        this.userListRequestService.getUserList();
       }
     }
   }
