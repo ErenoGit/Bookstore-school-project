@@ -3,7 +3,7 @@ const db = require('../database.js');
 module.exports = {
   getBooks: async (result) => {
    db.query(
-        "SELECT * FROM book",
+        "SELECT *, (SELECT loanId FROM currentloan WHERE bookId = b.bookId) AS loanId FROM book b",
         (err, res) => {
           if (err) {
             console.log("error: ", err);
