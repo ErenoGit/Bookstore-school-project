@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { setBooksListData } from '../../../store/actions/booksList.actions';
 import { setLoaderState } from '../../../store/actions/global.actions';
@@ -13,6 +14,8 @@ export class BooksListRequestService {
   constructor(
     private booksListRequestProviderService: BooksListRequestProviderService,
     private readonly store: Store<AppState>,
+    private snackBar: MatSnackBar
+
   ) { }
 
   getBooksList(): void {
@@ -51,12 +54,19 @@ export class BooksListRequestService {
             loaderState: false,
             action: "deleteBook"
           }));
+          this.snackBar.open("Książka usunięta!", '', {
+            duration: 3000
+          });
         },
         error: () => {
           this.store.dispatch(setLoaderState({
             loaderState: false,
             action: "deleteBook"
           }));
+
+          this.snackBar.open("Nie udało się usunąć książki!", '', {
+            duration: 3000
+          });
         }
       });
   }
@@ -73,12 +83,20 @@ export class BooksListRequestService {
             loaderState: false,
             action: "addBook"
           }));
+                    
+          this.snackBar.open("Książka usunięta!", '', {
+            duration: 3000
+          });
         },
         error: () => {
           this.store.dispatch(setLoaderState({
             loaderState: false,
             action: "addBook"
           }));
+                    
+          this.snackBar.open("Nie udało się dodać książki!", '', {
+            duration: 3000
+          });
         }
       });
   }

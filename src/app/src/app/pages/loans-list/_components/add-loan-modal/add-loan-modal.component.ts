@@ -41,6 +41,9 @@ export class AddLoanModalComponent implements OnInit {
   onSubmitClick() {
     if (this.reader.value && this.book.value && this.date.value) {
       this.loansListRequestService.addLoan(this.reader.value, this.book.value, new Date(), this.date.value);
+      this.reader = new FormControl();
+      this.book = new FormControl();
+      this.date = new FormControl(new Date());
     } 
   }
 }

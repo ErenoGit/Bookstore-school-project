@@ -10,7 +10,7 @@ import { BooksList } from '../../_models/books-list.models';
 })
 export class ContentTableComponent implements OnInit {
   @Input() books: BooksList = [];
-  displayedColumns: string[] = ['title', 'author', 'category', 'isbn', 'publishYear'];
+  displayedColumns: string[] = ['title', 'author', 'category', 'isbn', 'publishYear', 'active'];
   dataSource: any = null;
 
   @ViewChild(MatSort) sort: MatSort;

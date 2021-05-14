@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { select, Store } from '@ngrx/store';
 import { UserListRequestMapperService } from 'src/src/app/pages/users-list/_services/user-list-request-mapper.service';
 import { setLoaderState } from '../../../store/actions/global.actions';
@@ -14,6 +15,7 @@ export class UserListRequestService {
   constructor(
     private userListRequestProviderService: UserListRequestProviderService,
     private readonly store: Store<AppState>,
+    private snackBar: MatSnackBar
   ) { }
 
   getUserList(): void {
@@ -22,7 +24,6 @@ export class UserListRequestService {
       .subscribe({
         next: (usersList) => {
           this.store.dispatch(setUsersListData({ usersList }));
-
           this.setLoader(false, "getUser");
         },
         error: () => {
@@ -37,9 +38,15 @@ export class UserListRequestService {
       .subscribe({
         next: (res) => {
           this.setLoader(false, "addUser");
+          this.snackBar.open("Czytelnik usunięty!", '', {
+            duration: 3000
+          });
         },
         error: () => {
           this.setLoader(false, "addUser");
+          this.snackBar.open("Nie udało się usunąć czytelnika!", '', {
+            duration: 3000
+          });
         }
       });
   }
@@ -50,9 +57,15 @@ export class UserListRequestService {
       .subscribe({
         next: (res) => {
           this.setLoader(false, "addUser");
+          this.snackBar.open("Czytelnik dodany!", '', {
+            duration: 3000
+          });
         },
         error: () => {
           this.setLoader(false, "addUser");
+          this.snackBar.open("Nie udało się dodać czytelnika!", '', {
+            duration: 3000
+          });
         }
       });
   }

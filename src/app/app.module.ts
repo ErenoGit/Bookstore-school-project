@@ -37,6 +37,7 @@ import { RemoveLoanTableComponent } from './src/app/pages/loans-list/_components
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AppLoaderComponent } from './src/app/_components/app-loader/app-loader.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const materialModules = [
   MatToolbarModule,
@@ -50,6 +51,7 @@ const materialModules = [
   MatInputModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
