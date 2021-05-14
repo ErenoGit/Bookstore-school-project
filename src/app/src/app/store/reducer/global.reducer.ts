@@ -20,7 +20,6 @@ export const globalReducer = createReducer(initialState,
             }
         } else {
             const loaderActions = state.loaderActions.filter(loaderAction => loaderAction !== action);
-            console.log(loaderActions)
             return {
                 ...state,
                 loaderActions,

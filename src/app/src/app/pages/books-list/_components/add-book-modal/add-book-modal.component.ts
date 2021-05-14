@@ -27,7 +27,6 @@ export class AddBookModalComponent implements OnInit {
   onSubmitClick() {
     if (this.title.length > 0 && this.author.length > 0 && this.isbn.length > 0 && this.category.length > 0 && this.publishYear > 0 && this.publishYear < 2022) {
       this.booksListRequestService.addBook(this.isbn, this.title, this.author, this.publishYear, this.category);
-      this.booksListRequestService.getBooksList();
       this.title = '';
       this.author = '';
       this.publishYear = 2021;

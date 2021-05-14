@@ -34,7 +34,6 @@ export class RemoveLoanTableComponent implements OnInit {
   }
 
   onRemoveButtonClick(id: number) {
-    console.log(id);
     this.loansListRequestService.removeLoan(id);
   }
 

@@ -26,7 +26,6 @@ export class AddUserModalComponent implements OnInit {
   onSubmitClick() {
     if (this.firstName.length > 0 && this.lastName.length > 0 && this.phoneNumber.length > 0 && this.address.length > 0) {
       this.userListRequestService.addUser(this.lastName, this.firstName, this.address, this.phoneNumber);
-      this.userListRequestService.getUserList();
       this.firstName = '';;
       this.lastName = '';;
       this.phoneNumber = '';;

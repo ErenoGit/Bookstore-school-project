@@ -37,6 +37,7 @@ export class UserListRequestService {
     this.userListRequestProviderService.removeUser(id)
       .subscribe({
         next: (res) => {
+          this.getUserList();
           this.setLoader(false, "addUser");
           this.snackBar.open("Czytelnik usunięty!", '', {
             duration: 3000
@@ -56,6 +57,7 @@ export class UserListRequestService {
     this.userListRequestProviderService.addUser(lastName, firstName, address, phoneNumber)
       .subscribe({
         next: (res) => {
+          this.getUserList();
           this.setLoader(false, "addUser");
           this.snackBar.open("Czytelnik dodany!", '', {
             duration: 3000

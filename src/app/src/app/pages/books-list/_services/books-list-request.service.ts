@@ -50,6 +50,7 @@ export class BooksListRequestService {
     this.booksListRequestProviderService.deleteBook(id)
       .subscribe({
         next: (res) => {
+          this.getBooksList();
           this.store.dispatch(setLoaderState({
             loaderState: false,
             action: "deleteBook"
@@ -79,12 +80,13 @@ export class BooksListRequestService {
     this.booksListRequestProviderService.addBook(isbn, title, author, publishYear, category)
       .subscribe({
         next: (res) => {
+          this.getBooksList();
           this.store.dispatch(setLoaderState({
             loaderState: false,
             action: "addBook"
           }));
                     
-          this.snackBar.open("Książka usunięta!", '', {
+          this.snackBar.open("Książka dodana!", '', {
             duration: 3000
           });
         },

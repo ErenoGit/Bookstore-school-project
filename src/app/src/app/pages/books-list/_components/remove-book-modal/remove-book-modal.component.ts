@@ -32,7 +32,6 @@ export class RemoveBookModalComponent implements OnInit {
       const result = this.booksList.find((book: any) => book.title === this.bookToDelete.value);
       if(result) {
         this.bookListRequestService.deleteBook(result.bookId);
-        this.bookListRequestService.getBooksList();
       }
     }
   }
