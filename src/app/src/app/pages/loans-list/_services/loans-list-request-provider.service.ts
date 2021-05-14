@@ -22,7 +22,7 @@ export class LoansListRequestProviderService {
   }
 
   addLoan(userId: number, bookId: number, loanDate: Date, dueDate: Date): Observable<any> {
-    return this.http.post('http://127.0.0.1:5000/addLoan', { userId, bookId, loanDate, dueDate })
+    return this.http.post('http://127.0.0.1:5000/addLoan', { memberId: userId, bookId, loanDate, dueDate })
       .pipe(delay(1000));
   }
 }

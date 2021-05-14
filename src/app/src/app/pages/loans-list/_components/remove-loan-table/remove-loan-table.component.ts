@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { BooksListRequestService } from '../../../books-list/_services/books-list-request.service';
 import { LoansList } from '../../_models/loans-list.models';
 import { LoansListRequestService } from '../../_services/loans-list-request.service';
 
@@ -17,6 +18,7 @@ export class RemoveLoanTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   constructor(
     private loansListRequestService: LoansListRequestService,
+    private booksListRequestService: BooksListRequestService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class RemoveLoanTableComponent implements OnInit {
 
   onRemoveButtonClick(id: number) {
     this.loansListRequestService.removeLoan(id);
+    this.booksListRequestService.getBooksList();
   }
 
   getFormatedDate(rawDate: string): string {
