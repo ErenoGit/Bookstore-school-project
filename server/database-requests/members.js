@@ -31,7 +31,7 @@ module.exports = {
 
    deleteMember: async (id, result) => {
     db.query(
-         `DELETE FROM member WHERE memberId=${id};DELETE FROM currentloans WHERE memberId=${id}`,
+         `DELETE FROM member WHERE memberId=${id};DELETE FROM currentloan WHERE memberId=${id}`,
          (err, res) => {
            if (err) {
              console.log("error: ", err);
