@@ -30,6 +30,12 @@ import {MatInputModule} from '@angular/material/input';
 import { AddBookModalComponent } from './src/app/pages/books-list/_components/add-book-modal/add-book-modal.component';
 import { RemoveBookModalComponent } from './src/app/pages/books-list/_components/remove-book-modal/remove-book-modal.component';
 import { BooksListMenuComponent } from './src/app/pages/books-list/_components/books-list-menu/books-list-menu.component';
+import { LoansListComponent } from './src/app/pages/loans-list/loans-list.component';
+import { AddLoanModalComponent } from './src/app/pages/loans-list/_components/add-loan-modal/add-loan-modal.component';
+import { RemoveLoanMenuComponent } from './src/app/pages/loans-list/_components/remove-loan-menu/remove-loan-menu.component';
+import { RemoveLoanTableComponent } from './src/app/pages/loans-list/_components/remove-loan-table/remove-loan-table.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const materialModules = [
   MatToolbarModule,
@@ -40,7 +46,9 @@ const materialModules = [
   MatButtonModule,
   MatDialogModule,
   MatSelectModule,
-  MatInputModule
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 @NgModule({
@@ -56,7 +64,11 @@ const materialModules = [
     RemoveUserModalComponent,
     AddBookModalComponent,
     RemoveBookModalComponent,
-    BooksListMenuComponent
+    BooksListMenuComponent,
+    LoansListComponent,
+    AddLoanModalComponent,
+    RemoveLoanMenuComponent,
+    RemoveLoanTableComponent
   ],
   imports: [
     ...materialModules,
@@ -68,7 +80,9 @@ const materialModules = [
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

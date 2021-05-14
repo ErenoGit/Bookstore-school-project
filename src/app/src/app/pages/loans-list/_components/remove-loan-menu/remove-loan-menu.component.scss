@@ -1,0 +1,13 @@
+.loan-list-menu-container {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loan-list-menu {
+    button {
+      margin: 0 10px;
+    }
+  }
+}

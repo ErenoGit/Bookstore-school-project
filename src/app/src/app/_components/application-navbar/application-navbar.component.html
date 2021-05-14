@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
         <span class="navbar-title"> Księgarnia </span>
-        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.borrowedBooks}" (click)="navigateToPage(appPages.borrowedBooks)">
+        <div class="navbar-nav-item" [ngClass]="{'actived': currentRoute == appPages.loans}" (click)="navigateToPage(appPages.loans)">
             <mat-icon aria-hidden="false">share</mat-icon>
             <span>Lista wypożyczeń</span>
         </div>

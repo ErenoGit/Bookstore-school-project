@@ -7,7 +7,7 @@
         <mat-option *ngFor="let book of booksList" [value]="book.title">{{book.title}} ({{book.publishYear}})</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button (click)="onSubmitClick()">Usuń</button>
+    <button mat-raised-button mat-button color="primary" (click)="onSubmitClick()">Usuń</button>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

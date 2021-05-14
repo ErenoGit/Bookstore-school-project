@@ -5,6 +5,7 @@ export interface Book {
     author: string,
     publishYear: number,
     category: string,
+    loanId: null | number;
 };
 
 export type BooksList = Book[] | [] ;
