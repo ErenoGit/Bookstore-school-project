@@ -9,10 +9,10 @@ module.exports = {
   },
 
   addLoan: (req, res) => {
-    const memberId = req.params.memberId;
-    const bookId = req.params.bookId;
-    const loanDate = req.params.loanDate;
-    const dueDate = req.params.dueDate;
+    const memberId = req.body.memberId;
+    const bookId = req.body.bookId;
+    const loanDate = req.body.loanDate;
+    const dueDate = req.body.dueDate;
     currentloans.addLoan(memberId,bookId,loanDate,dueDate,(error, data) => {
       if (error) res.status(500).send(error);
       else res.send(data);
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   deleteLoan: (req, res) => {
-    const id = req.params.id;
+    const id = req.body.loanId;
     currentloans.deleteLoan(id,(error, data) => {
       if (error) res.status(500).send(error);
       else res.send(data);

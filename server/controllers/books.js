@@ -9,11 +9,11 @@ module.exports = {
   },
 
   addBook: (req, res) => {
-    const isbn = req.params.isbn;
-    const title = req.params.title;
-    const author = req.params.author;
-    const publishYear = req.params.publishYear;
-    const category = req.params.category;
+    const isbn = req.body.isbn;
+    const title = req.body.title;
+    const author = req.body.author;
+    const publishYear = req.body.publishYear;
+    const category = req.body.category;
     books.addBook(isbn,title,author,publishYear,category,(error, data) => {
       if (error) res.status(500).send(error);
       else res.send(data);
@@ -21,7 +21,7 @@ module.exports = {
   },
 
   deleteBook: (req, res) => {
-    const id = req.params.id;
+    const id = req.body.bookId;
     books.deleteBook(id,(error, data) => {
       if (error) res.status(500).send(error);
       else res.send(data);
