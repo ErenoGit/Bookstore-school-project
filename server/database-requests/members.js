@@ -15,9 +15,9 @@ module.exports = {
       );
   },
 
-  addMember: async (lastname, firstname, address, phoneNumber, result) => {
+  addMember: async (lastName, firstName, address, phoneNumber, result) => {
     db.query(
-      `INSERT INTO currentloan VALUES (null, ${lastname}, ${firstname}, ${address}, ${phoneNumber})`,
+      `INSERT INTO member VALUES (null, '${lastName}', '${firstName}', '${address}', '${phoneNumber}')`,
          (err, res) => {
            if (err) {
              console.log("error: ", err);
