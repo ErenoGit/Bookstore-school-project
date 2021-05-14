@@ -1,7 +1,7 @@
 const db = require('../database.js');
 
 module.exports = {
-  getCurrentLoans: async (result) => {
+  getLoans: async (result) => {
    db.query(
         "SELECT * FROM currentloan",
         (err, res) => {
