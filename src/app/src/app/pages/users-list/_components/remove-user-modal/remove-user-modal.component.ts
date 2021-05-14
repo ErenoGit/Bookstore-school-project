@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/src/app/store/reducer';
-import { UsersList } from '../../_models/users-list-model';
+import { UsersList, User } from '../../_models/users-list-model';
 import { UserListRequestService } from '../../_services/user-list-request.service';
 
 @Component({
@@ -29,7 +29,7 @@ export class RemoveUserModalComponent implements OnInit {
   
   onSubmitClick(): void {
     if (this.userToDelete.value) {
-      const result = this.usersList.find(user => user.memberId === this.userToDelete.value);
+      const result = this.usersList.find((user: User) => user.memberId === this.userToDelete.value);
       if(result) {
         this.userListRequestService.removeUser(this.userToDelete.value);
       }

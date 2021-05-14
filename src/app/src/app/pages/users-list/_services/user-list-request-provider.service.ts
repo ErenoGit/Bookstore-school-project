@@ -16,6 +16,6 @@ export class UserListRequestProviderService {
   }
 
   removeUser(id: string): Observable<any> {
-    return this.http.get('http://127.0.0.1:5000/deleteMembers', { params: { memberId: id }})
+    return this.http.post('http://127.0.0.1:5000/deleteMember', { memberId: id })
   }
 }
