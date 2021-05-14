@@ -17,7 +17,7 @@ module.exports = {
 
   addLoan: async (memberId, bookId, loanDate, dueDate, result) => {
     db.query(
-      `INSERT INTO currentloan VALUES (null, ${memberId}, ${bookId}, ${loanDate}, ${dueDate})`,
+      `INSERT INTO currentloan VALUES (null, '${memberId}', '${bookId}', '${loanDate}', '${dueDate}')`,
          (err, res) => {
            if (err) {
              console.log("error: ", err);

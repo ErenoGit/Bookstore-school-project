@@ -17,7 +17,7 @@ module.exports = {
 
   addBook: async (isbn, title, author, publishYear, category, result) => {
     db.query(
-         `INSERT INTO book VALUES (null, ${isbn}, ${title}, ${author}, ${publishYear}, ${category})`,
+         `INSERT INTO book VALUES (null, '${isbn}', '${title}', '${author}', ${publishYear}, '${category}')`,
          (err, res) => {
            if (err) {
              console.log("error: ", err);

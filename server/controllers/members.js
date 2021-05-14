@@ -9,11 +9,11 @@ module.exports = {
   },
 
   addMember: (req, res) => {
-    const lastname = req.body.lastname;
-    const firstname = req.body.firstname;
+    const lastName = req.body.lastName;
+    const firstName = req.body.firstName;
     const address = req.body.address;
     const phoneNumber = req.body.phoneNumber;
-    members.addMember(lastname,firstname,address,phoneNumber,(error, data) => {
+    members.addMember(lastName,firstName,address,phoneNumber,(error, data) => {
       if (error) res.status(500).send(error);
       else res.send(data);
     });
