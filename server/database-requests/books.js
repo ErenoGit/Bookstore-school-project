@@ -31,14 +31,24 @@ module.exports = {
 
    deleteBook: async (id, result) => {
     db.query(
-         `DELETE FROM book WHERE bookId=${id};DELETE FROM currentloan WHERE bookId=${id};`,
+         `DELETE FROM currentloan WHERE bookId=${id}`,
          (err, res) => {
            if (err) {
              console.log("error: ", err);
              result({ errorMessage: "Wystąpił błąd!" }, []);
              return;
            }
-           result(null, res);
+           db.query(
+            `DELETE FROM book WHERE bookId=${id}`,
+            (err, res) => {
+              if (err) {
+                console.log("error: ", err);
+                result({ errorMessage: "Wystąpił błąd!" }, []);
+                return;
+              }
+              result(null, res);
+            }
+          );
          }
        );
    }
